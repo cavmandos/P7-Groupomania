@@ -14,16 +14,16 @@ Utiliser nodemon server pour lancer le backend.
 
 
 # DATABASE ############################
-1. Le schéma de la base de donnée est contenu dans le fichier "Groupomania.sql"
-2. Les accès de la base de donnée sont acessibles via le fichier .env
+1. Le schéma de la base de donnée à importer est contenu dans le fichier "Groupomania.sql"
+2. Créer un fichier .env dans le dossier backend et y insérer les raccourcis/accès indiqués ici pour la base de donnée et le système de token :
 
-->  DATABASE = groupomania
-->  DATABASE_HOST = localhost
-->  DATABASE_USER = root
-->  DATABASE_PASSWORD = !2mySQL
+DATABASE = groupomania
+DATABASE_HOST = localhost
+DATABASE_USER = root
+DATABASE_PASSWORD = !2mySQL
 
-Le nom du token est également codifié via le fichier .env
-->  TOKEN = 'RANDOM_TOKEN_SECRET'
+Le nom du token est également à insérer dans le fichier .env
+TOKEN = 'RANDOM_TOKEN_SECRET'
 
 ## FRONTEND ###########################
 Dépendances : axios, core-js, sweetalert2, vue, vue-router, vuetify et vuex.
