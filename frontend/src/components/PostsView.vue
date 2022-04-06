@@ -328,9 +328,15 @@ export default {
       this.$router.push("/");
     } else {
       this.user = JSON.parse(localStorage.getItem("user"));
+      let local = JSON.parse(localStorage.user);
+      let token = local.token;
       // GET ALL posts
       axios
-        .get(`http://localhost:3000/posts`)
+        .get(`http://localhost:3000/posts`, {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        })
         .then((res) => {
           this.posts = res.data;
         })
@@ -339,7 +345,11 @@ export default {
         });
       // GET ALL comments
       axios
-        .get(`http://localhost:3000/comments`)
+        .get(`http://localhost:3000/comments`, {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        })
         .then((res) => {
           this.comments = res.data;
           this.loading = false;
