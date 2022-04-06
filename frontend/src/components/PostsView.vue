@@ -198,6 +198,7 @@ export default {
     newPost(event) {
       const { content, image } = Object.fromEntries(new FormData(event.target));
       let local = JSON.parse(localStorage.user);
+      let token = local.token;
       let userId = local.userId;
       let prenom = local.prenom;
       let nom = local.nom;
@@ -209,7 +210,7 @@ export default {
         method: "post",
         url: "http://localhost:3000/posts",
         data: { userId, content, image, prenom, nom, date, imageProfile },
-        headers: { "Content-Type": "application/json" },
+        headers: { Authorization: "Bearer " + token, "Content-Type": "application/json" },
       })
         .then((reponse) => {
           console.log(reponse);
@@ -288,6 +289,7 @@ export default {
     //CREATE a new comment
     newComment(id) {
       let local = JSON.parse(localStorage.user);
+      let token = local.token;
       let userId = local.userId;
       let nom = local.nom;
       let prenom = local.prenom;
@@ -303,7 +305,7 @@ export default {
           prenom: prenom,
           date,
         },
-        headers: { "Content-Type": "application/json" },
+        headers: { Authorization: "Bearer " + token, "Content-Type": "application/json" },
       })
         .then((reponse) => {
           console.log(reponse);
